@@ -1,0 +1,245 @@
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+         <h1>Welcome to dDPP Provider Dashboard</h1>
+        <p>Below you can find dDPP metrics for each participating user in Noom.</p>
+    </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      width: 100%;
+      height: 100%;
+      font-size: 62.5%;
+    }
+
+    body {
+      width: 100%;
+      height: 100%;
+      background-color: rgb(255, 255, 255);
+      padding: 1rem;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #app {
+      margin: 0 auto;
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      border: 2px solid black;
+      margin-bottom: 2rem;
+    }
+
+    .nav {
+      display: block;
+      height: 6rem;
+      background-color: #f4f4f4;
+      position: relative;
+    }
+
+    .nav__links {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .link,
+    .link:active,
+    .link:visited,
+    .link:link {
+      color: black;
+      font-size: 1.6rem;
+    }
+
+    .header {
+      display: block;
+      height: 10vh;
+      padding: 1rem;
+      /*       border: 2px solid black; */
+    }
+
+    /*  A NOTE ON VERTICAL ALIGNMENT WITHOUT FLEXBOX OR GRID: Notice, that if you have a position:absolute on a child element, the parent container  must have a position:relative  */
+    .header__info {
+      display: block;
+      width: 50%;
+      height: 100%;
+      background-color: #CDECFF;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .header__title {
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .main {
+      margin-top: 2rem;
+      display: block;
+      height: 100%;
+      padding: 0rem 1rem 1rem 1rem;
+    }
+
+    .main__title {
+      text-align: center;
+    }
+
+    .main__articles {
+      display: block;
+      width: 600px;
+      height: auto;
+      border: 1 px solid black;
+      margin: 0 auto;
+    }
+
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+
+    .article {
+      display: inline-block;
+      float: left;
+      /* NOTE: we introduce a float:left and as a result, we need to add a clearfix to the parent container */
+      width: 200px;
+      padding: 0.5rem;
+    }
+
+    .article__content {
+      border: 2px solid black;
+      padding: 0.5rem;
+    }
+
+    .article__image {
+      width: 100%;
+      height: 100px;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .article__image--map {
+      background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Vancouver_by_Sentinel-2.jpg/1024px-Vancouver_by_Sentinel-2.jpg)
+    }
+
+    .article__image--city {
+      background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Concord_Pacific_Master_Plan_Area.jpg/1920px-Concord_Pacific_Master_Plan_Area.jpg)
+    }
+
+    .article__image--bridge {
+      background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Lions_Gate_Bridge_at_night.jpg/2560px-Lions_Gate_Bridge_at_night.jpg)
+    }
+
+    .article__image--mountains {
+      background-image: url(https://upload.wikimedia.org/wikipedia/commons/8/8e/UBC_aerial_view-cropped.jpg)
+    }
+  </style>
+  <meta charset="utf-8" />
+</head>
+
+<body>
+  <div id="app">
+    <!--   nav   -->
+    <nav class="nav">
+      <div class="nav__links">
+        <a class="link" href="#">About Noom</a>
+        <a class="link" href="#">Engagement</a>
+        <a class="link" href="#">Algorithm</a>
+      </div>
+    </nav>
+    <!--   header   -->
+    <header class="header">
+      <div class="header__info">
+        <h1 class="header__title">dDPP Provider Dashboard</h1>
+      </div>
+    </header>
+    <main class="main">
+      <h2 class="main__title">Patient dDPP Data</h2>
+      <section class="main__articles clearfix">
+        <!--    article     -->
+        <article class="article">
+          <div class="article__content">
+            <header>
+              <h2 class="article__title">Patient Name</h2>
+            </header>
+            <p>John Doe</p>
+            <div class="patient_name"></div>
+          </div>
+        </article>
+        <!--    article     -->
+        <article class="article">
+            <div class="article__content">
+              <header>
+                <h2 class="article__title">Emrollment Date</h2>
+              </header>
+              <p>Enrollment date goes here</p>
+              <div class="update_date"></div>
+            </div>
+          </article>
+        <!--    article    -->
+        <article class="article">
+          <div class="article__content">
+            <header>
+              <h2 class="article__title">Noom Start Date</h2>
+            </header>
+            <p>Date goes here</p>
+            <div class="noom_start_date"></div>
+          </div>
+        </article>
+        <!--    article    -->
+        <article class="article">
+          <div class="article__content">
+            <header>
+              <h2 class="article__title">Current Week</h2>
+            </header>
+            <p>Week number goes here</p>
+            <div class="noom_current_week"></div>
+          </div>
+        </article>
+        <!--    article    -->
+        <article class="article">
+          <div class="article__content">
+            <header>
+              <h2 class="article__title">Engagement Level</h2>
+            </header>
+            <p>Weight change goes here</p>
+            <div class="engage_level"></div>
+          </div>
+        </article>
+        <!--    article    -->
+        <article class="article">
+            <div class="article__content">
+              <header>
+                <h2 class="article__title">Date of Last Update</h2>
+              </header>
+              <p>Update date goes here</p>
+              <div class="update_date"></div>
+            </div>
+          </article>
+      </section>
+    </main>
+  </div>
+</body>
+
+</html>
